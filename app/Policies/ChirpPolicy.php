@@ -21,7 +21,7 @@ class ChirpPolicy
      */
     public function view(User $user, Chirp $chirp): bool
     {
-        return $chirp->user()->is($user);
+        return true;
     }
 
     /**
@@ -45,6 +45,6 @@ class ChirpPolicy
      */
     public function delete(User $user, Chirp $chirp): bool
     {
-        return $chirp->user()->is($user);
+        return $this->update($user, $chirp);
     }
 }
